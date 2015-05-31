@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "nome": "Notebook ASUS Intel Core i5 HD 8GB 1TB Ultrafino",
+    "descricao": "Notebook Asus X450LD-BRA-WX112H Possui design ultrafino e hardware altamente eficiente para o usuário que busca configuração avançada ao realizar multitarefas e executar aplicativos considerados pesados. O aparelho é ideal para o trabalho e para entretenimento, como jogar games de última geração, criar apresentações e assistir filmes com alta qualidade de imagem e som.",
+    "data_final": "2015-01-01",
+    "imagem": "notebook-asus.jpg",
+    "quantidade": 12, 
+    "oferta": "de R$ 2.099,00 por R$ 1.999,00",
+    "nomecat": "Informática",
+    "idcat":"1",
+    "vendedor": 1,
+    "nivel": 1
+}

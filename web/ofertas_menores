@@ -1,0 +1,41 @@
+<section id="ofertas_mais">
+  <div class="meio">
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+    <article class="mais_oferta"> <img src="images/ofertas/placeholder2.png" width="140" height="64" alt="">
+      <h1>Título da oferta</h1>
+      <span class="desc_oferta">Descrição da oferta</span><span class="veja_mais">Veja mais</span></article>
+  </div>
+  <div class="clear">&nbsp;</div>
+</section>

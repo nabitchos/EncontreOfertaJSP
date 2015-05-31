@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nome": "Notebook ASUS Intel Core i5 HD 8GB 1TB Ultrafino",
+        "imagem": "notebook-asus.jpg",
+        "oferta": "de R$ 2.099,00 por R$ 1.999,00"
+    },
+    {
+        "id": 2,
+        "nome": "Tablet Infantil TecToy Galinha Pintadinha Tela 7 polegadas",
+        "imagem": "tablet-pintadinha.jpg",
+        "oferta": "de R$ 399,00 po R$ 348,00"
+    },
+    {
+        "id": 3,
+        "nome": "Motorola Moto G (2ª Geração) DTV Colors Preto, TV Digital, Dual Chip",
+        "imagem": "moto-g-2.jpg",
+        "oferta": "de R$ 879,00 po R$ por 749,00"
+    },
+    {
+        "id": 4,
+        "nome": "iPhone 6 16gb Cinza",
+        "imagem": "iphone-6.jpg",
+        "oferta": "de R$ 3.499,00R$ por 3.399,00"
+    },
+    {
+        "id": 5,
+        "nome": "Smart TV 3D LED Ultrafina 40 polegadas Full HD Philips",
+        "imagem": "smarttv_philips.jpg",
+        "oferta": "de: R$ 1.999,00 Por: R$ 1.657,90"
+    },
+    {
+        "id": 6,
+        "nome": "Lava e Seca Samsung Siene",
+        "imagem": "lavadora-samsung.jpg",
+        "oferta": "Apenas R$ 2.158,20"
+    }
+]

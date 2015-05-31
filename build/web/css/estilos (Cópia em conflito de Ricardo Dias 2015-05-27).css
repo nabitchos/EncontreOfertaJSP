@@ -1,0 +1,542 @@
+@charset "utf-8";
+/*
+        INÍCIO DO CSS RESET
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea {
+    margin: 0;
+    padding: 0;
+    font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*
+        FIM DO CSS RESET
+*/
+body {
+    padding-top: 115px;
+    background: #555;
+}
+a {
+    color: #FF9C00;
+    text-decoration: none;
+}
+.meio {
+    width: 960px;
+    margin: 0 auto;
+}
+.col50{
+    display: block;
+    width: 50%;
+    float: left;
+}
+.col75{
+    display: block;
+    width: 75%;
+    float: left;
+}
+.col25{
+    display: block;
+    width: 25%;
+    float: left;
+}
+.col60{
+    display: block;
+    width: 60%;
+    float: left;
+}
+.col40{
+    display: block;
+    width: 40%;
+    float: left;
+}
+.bordaDir{
+    background-image: url(../images/menu.png);
+    background-position: right;
+    background-size: 1px 1px;
+    background-repeat: repeat-y;
+}
+.clear {
+    height: 0px;
+    clear: both;
+}
+header {
+    height: 105px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background: #FFF;
+    border-top: 5px solid #777;
+    z-index: 999;
+}
+.navbar{
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #e5e5e5;
+    position: relative;
+    -webkit-box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.25);
+    box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.25);
+    background: #fff;
+}
+header nav {
+    display: block;
+    width: 100%;
+    height: 40px;
+}
+header nav ul li {
+    display: block;
+    float: left;
+    text-align: center;
+    width: 19.5%;
+}
+header nav ul li a {
+    font-weight: bold;
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0px;
+    transition: background-color 0.3s ease;
+}
+header nav ul li a:hover {
+    background: #FF9C00;
+    color: #fff;
+}
+header form {
+    float: right;
+    margin-top: 10px;
+    text-align: right;
+    display: block;
+}
+header input[type="submit"] {
+    background: #FF9C00;
+    border: none;
+    color: #fff;
+    padding: 3px;
+    margin: 0;
+    font-size: 12px;
+}
+header input[type="text"] {
+    border: 1px solid #CCC;
+    color: #999;
+    padding: 3px 5px;
+    margin: 0;
+    width: 50%;
+}
+header h1 {
+    position: relative;
+    display: block;
+    height: 70px;
+    width: 270px;
+    text-indent: -9999px;
+    background: url(../images/eo_logo.png) top left;	
+}
+header h1 a{
+    display: block;
+    height: 70px;
+    width: 270px;
+}
+
+#banner_destaque {
+    width: 100%;
+    height:423px;
+    background: url(../images/bg_banner.jpg) top center;
+}
+#ofertas_destaque {
+    background: #f0f0f0;
+    padding: 10px 0;
+    min-height: 350px;
+}
+.destaque {
+    width: 314px;
+    float: left;
+    background: #FFF none repeat scroll 0% 0%;
+    margin: 3px;
+    text-align: center;
+}
+#produto h1, #categorias h1, #contato h1, #ofertasHome > h1{
+    font-size: 1.2em;
+    color:  #FF9C00;
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 10px 10px 15px 10px;
+}
+.destaque h1 {
+    margin: 10px 0px;
+    color: #FF9C00;
+    font-size: 1em;
+    width: 290px;
+    height: 34px;
+    overflow: hidden;
+    text-align: center;
+    margin: 10px auto;
+}
+.destaque img{
+    max-width:100%;
+    height: auto;
+    border-bottom: 4px solid #f0f0f0;    
+}
+#ofertas_mais {
+    background: #fff;
+    padding: 10px 0;
+}
+#produto, #categorias, #contato{
+    background: #f0f0f0;
+    padding: 15px;
+}
+#produto .colEsq{
+    float: left;
+    max-width: 290px;
+}
+
+#produto h2{
+    color: #777;
+    font-size:1.2em;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+.fotoProduto{
+    display: block;
+    max-width: 290px;
+    float: left;
+}
+
+#categorias .fotoProduto{
+    width: 250px;
+}
+
+.fotoProduto img{
+    width: 100%;
+    height: auto;
+}
+
+.desc_ofertaProd{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+    padding: 15px 0;
+    font-weight: bold;
+    background: #555;
+    color: #fff;
+    float: left;
+}
+
+#produto .linkVoucher{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: bold;
+    background: #FF9C00;
+    color: #fff;
+    float: left;
+    margin-top: 15px;
+}
+
+.descProduto{
+    float: right;
+    display: block;
+    max-width: 625px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 15px;    
+    width: 630px;
+    min-height: 335px;
+}
+
+.textoProduto p{
+    margin: 15px 0;
+    color: #666;
+    text-align: justify;
+}
+
+#voucher h1{
+    text-align: center;
+}
+#voucher a{
+    display: inline-block;
+    text-align: center;
+    color: #FF9C00;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+}
+#div320{
+    width: 320px;
+    height: 100px;
+    position: fixed;
+    background: #000;
+}
+#div720{
+    width: 720px;
+    height: 100px;
+    position: fixed;
+    background: #f00;
+}
+.mais_oferta h1 {
+    margin: 3px 0;
+    color: #555;
+}
+.desc_oferta {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    color: #555;
+}
+.mais_oferta {
+    width: 140px;
+    float: left;
+    background: #f0f0f0;
+    margin: 10px 10px;
+    text-align: center;
+}
+.mais_oferta h1, .mais_oferta .desc_oferta {
+    font-size: 14px;
+}
+.mais_oferta .desc_oferta {
+    width: 90%;
+    margin: 0 auto;
+}
+.veja_mais {
+    background-color: #FF9C00;
+    color: #fff;
+    padding: 0.3em;
+    font-weight: bold;
+    display: block;
+    width: 75%;
+    margin: 10px auto;
+}
+.mais_oferta .veja_mais {
+    font-size: 14px;
+    width: 75px;
+    background: #fff;
+    color: #FF9C00;
+    margin: 5px auto;
+}
+.veja_mais a{
+    color:#fff;
+}
+.produtoCategoria{
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.descProdutoCat{
+    display: block;
+    width: 675px;
+    background: #fff;
+    float: right;
+    height: 120px;
+    padding:15px;
+}
+.descProdutoCat h2{
+    color: #555;
+    font-size: 1.3em;
+    text-align: justify;
+}
+.descProdutoCat .desc_oferta{
+    font-size: 1.3em;
+}
+.esquerdaProd{
+    display: inline-block;
+    width: 500px;
+    float: left;
+}
+.linksProd{
+    display: inline-block;
+    width: 150px;
+    float: right;
+}
+
+.linksProd .veja_mais{
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 85px;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.linksProd .veja_mais a{
+    display: block;
+    width: 100%;
+    line-height: 85px;
+}
+.linksProd img{
+    width: 150px;
+    height: auto;
+}
+.formContato{
+    background: #fff;
+    padding: 10px;
+    min-height: 350px;
+}
+.formContato h2{
+    font-size: 1em;
+    color: #555;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.formContato form{
+    display: block;
+}
+.formContato div{
+    display: block;
+    margin: 10px 0;
+}
+.formContato label{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    color: #555;
+    margin-right: 10px;
+    vertical-align: top;
+    padding:4px 0;
+}
+.formContato textarea, .formContato input[type="text"],
+.formContato input[type="email"], .formContato input[type="tel"], .formContato input[type="password"]{
+    display: inline-block;
+    width: 340px;
+    font-size: 15px;
+    padding: 2px 4px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #e17400;
+}
+
+.formContato input[type="submit"]{
+    font-size: 15px;
+    padding: 5px 20px;
+    background: #FF9C00;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    margin: 10px 0 0 375px;
+}
+
+.formContato input[type="button"]{
+    font-size: 15px;
+    padding: 5px 20px;
+    background: #FF9C00;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+
+.formContato a{
+    display: block;
+    width: 140px;
+    margin: 20px 0;
+}
+
+.formContato p{
+    line-height: 25px;
+}
+
+footer {
+    border-top: 3px solid #FF9C00;
+    text-align: center;
+    color: #ccc;
+    padding: 25px;
+    background: #555;
+}
+.menuCategorias {
+    color: #fff;
+    padding: 5px 10px;
+    background-color: #FF9C00;
+    position:fixed;
+    top:116px;
+    width:100%;
+    -webkit-box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.25);
+    box-shadow: 0px 5px 6px -3px rgba(0,0,0,0.25);
+    z-index: 999;
+}
+.abaLaranja {
+    color: #fff;
+    background: #FF9C00;
+}
+.categoria{
+    display:block;
+    width: 21%;
+    margin: 1%;
+    float: left;
+    line-height: 30px;
+    background: #ffae2f;
+    padding: 7px;
+}
+.iconeCategoria{
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-right: .5em;
+}
+.iconeCat1{
+    background: url(../images/icons/informatica.png);
+}
+.iconeCat2{
+    background: url(../images/icons/eletrodomestico.png);
+}
+.iconeCat3{
+    background: url(../images/icons/telefone.png);
+}
+.iconeCat4{
+    background: url(../images/icons/eletronicos.png);
+}
+.categoria a{
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+.liquid-slider h1{
+    font-weight: bolder;
+    font-size: 1.8em;
+    color: #655;
+    margin-top: 25%;
+}
+.liquid-slider h2{
+    font-weight: bolder;
+    font-size: 1.5em;
+    color: #877;
+}
+.sociasOferta{
+    position: relative;
+    bottom: -170px;
+    text-align: right;
+}
+.sociasOferta strong{
+    position: relative;
+    bottom: 4px;
+    margin-right: 7px;
+    color: #FF9C00;
+    font-size: 18px;
+}
+.sociasOferta .fb_iframe_widget { 
+    bottom: 3px;
+}

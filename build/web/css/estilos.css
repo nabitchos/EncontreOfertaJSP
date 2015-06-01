@@ -503,16 +503,16 @@ footer {
     margin-right: .5em;
 }
 .iconeCat1{
-    background: url(../images/icons/1.png);
+    background: url(../images/icons/informatica.png);
 }
 .iconeCat2{
-    background: url(../images/icons/2.png);
+    background: url(../images/icons/eletrodomestico.png);
 }
 .iconeCat3{
-    background: url(../images/icons/2.png);
+    background: url(../images/icons/telefone.png);
 }
 .iconeCat4{
-    background: url(../images/icons/4.png);
+    background: url(../images/icons/eletronicos.png);
 }
 .categoria a{
     display: block;

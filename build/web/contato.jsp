@@ -59,16 +59,6 @@
             </div>
         </section>    
         <script src="js/jquery.min.js"></script>
-        <script>           
-            $('#formcontato').submit(function() {
-                var valores = {};
-                $.each($('#formcontato').serializeArray(), function(i, field) {
-                    valores[field.name] = field.value;
-                });
-                console.log(JSON.stringify(valores));
-                return false;
-            });
-        </script>
         <jsp:include page="footer.jsp" />
     </body>
 </html>

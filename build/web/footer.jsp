@@ -5,8 +5,8 @@
             $("#linkCategorias").toggleClass("abaLaranja");//muda a classe do link categorias
             $("#menuCategorias").slideToggle(200);//mostra e oculta ativa e desativa o menu
         });
-
-        $.getJSON("json/categorias.json", function(data) {
+        var URLJson = "http://api-encontreoferta.jelasticlw.com.br/pub/api/categoria";
+        $.getJSON("json-proxy.jsp?url=" + URLJson, function(data) {
             var menuCats = "";
 
             /* loop pelo array do json*/
@@ -23,7 +23,8 @@
 <footer>
     <div class="meio">
         <ul>
-            <li>© 2015 Encontre Oferta </li>
+            <li>© 2015 Encontre Oferta</li>
+            <li><br><strong>Este site é um projeto acadêmico. Todas as informações nele contidas são fictícias.</h4></strong>
         </ul>
     </div>
 </footer>

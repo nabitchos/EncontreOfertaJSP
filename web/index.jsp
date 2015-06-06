@@ -35,33 +35,34 @@
             $(document).ready(function() {
                 /* definindo que não haverá cache */
                 $.ajaxSetup({cache: false});
-
-                $.getJSON("json/banner.json", function(data) {
+                var JSONbanner = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/nivel/1";
+                $.getJSON("json-proxy.jsp?url=" + JSONbanner, function(dadosJSON) {
                     var banners = "";
 
                     /* loop pelo array do json*/
-                    $.each(data, function(index, d) {
-                        banners += '<h3 class="title">' + (index + 1) + '</h3>' +
-                                '<div><a href="oferta.jsp\?id=' + d.id + '">' +
-                                '<div class="col50"><h1>' + d.nome + '</h1><h2>' + d.oferta + '</h2></div>' +
-                                '<div class="col50"><img src="images/ofertas/' + d.imagem + '" alt="'+ d.nome + '"></div>' +
+                    $.each(dadosJSON, function(i, banner) {
+                        banners += '<h3 class="title">' + (i + 1) + '</h3>' +
+                                '<div><a href="oferta.jsp\?id=' + banner.id + '" title="' + banner.descricao + ' ' + banner.oferta + '">' +
+                                '<div class="col50"><h1>' + banner.nome + '</h1><h2>' + banner.oferta + '</h2></div>' +
+                                '<div class="col50"><img src="' + banner.imagem + '" alt="'+ banner.descricao + ' ' + banner.oferta +'"></div>' +
                                 '</a></div>';
                     });
 
                     $('#main-slider').html(banners);
                     $('#main-slider').liquidSlider();
                 });
-
-                $.getJSON("json/ofertashome.json", function(data) {
+                
+                var JSONdestaques = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/nivel/2";
+                $.getJSON("json-proxy.jsp?url=" + JSONdestaques, function(destaques) {
                     var ofertasHome = "<h1>OFERTAS EM DESTAQUE</h1>";
 
                     /* loop pelo array do json*/
-                    $.each(data, function(index, d) {
+                    $.each(destaques, function(i, destaque) {
                         ofertasHome += '<article class="destaque">' +
-                                '<img src="images/ofertas/' + d.imagem + '" height="175" width="290" alt="'+ d.nome + '">' +
-                                '<h1>' + d.nome + '</h1>' +
-                                '<span class="desc_oferta">' + d.oferta + '</span>' +
-                                '<a class="veja_mais" href="oferta.jsp\?id=' + d.id + '">Veja mais</a>' +
+                                '<img src="' + destaque.imagem + '" height="175" width="290" alt="'+ destaque.nome + '">' +
+                                '<h1>' + destaque.nome + '</h1>' +
+                                '<span class="desc_oferta">' + destaque.oferta + '</span>' +
+                                '<a class="veja_mais" href="oferta.jsp\?id=' + destaque.id + '">Veja mais</a>' +
                                 '</article>';
                     });
                     $("#ofertasHome").html(ofertasHome);

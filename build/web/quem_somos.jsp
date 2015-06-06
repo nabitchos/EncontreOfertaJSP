@@ -17,12 +17,12 @@
             <div class="meio">
                 <h1><a href="#">Quem somos</a></h1>
                 <article class="formContato">                
+                    <img src="images/eo_logo-boneco-pq.png" id="logoEOboneco" alt="Encontre Oferta">
                     <p>O projeto Encontre Oferta tem como objetivo auxiliar o usuário a adquirir descontos em sites de empresas parceiras, dos mais variados ramos de atuação, com grande diversidade de produtos e publico alvo também diversificado, auxiliado pelo sistema de busca ou navegando nas diversas categorias para encontrar os cupons desejados.</p>
                     <p>&nbsp; </p>
                     <p>Criado com intuito de auxiliar os usuários de e-commerce a conseguir desconto em suas compras, com  comodidade e praticidade, já que o sistema funciona tanto via navegador quanto nos smartphones com sistema operacional Android.</p>
                     <p>&nbsp;</p>
                     <p>O projeto Encontre Oferta foi idealizado como um portal de anúncios, com o objetivo de ser um canal de integração entre empresas que querem divulgar suas promoções e, clientes que estão em busca de bons preços e vantagens, para adquirir tais produtos e serviços. Inicialmente o escopo são os usuários da internet, que acessam os sites das principais lojas varejistas de todo o país e também realizam comparações de acordo com o seu perfil, afim, de obter cada vez mais benefícios e comodidade durante a compra.</p>
-
                     <div class="clear"></div>
                 </article>
                 <div class="clear"> &nbsp; </div>

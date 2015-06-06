@@ -1,6 +1,1 @@
-[
-    {"id":1,"nome":"Informática","descricao":"Computadores, tablets, impressoras e ect."},
-    {"id":2,"nome":"Eletrodomésticos","descricao":"Geladeiras, fogões e etc."},
-    {"id":3,"nome":"Telefonia","descricao":"Smartphones, celulares, e telefones."},    
-    {"id":4,"nome":"Eletrônicos","descricao":"TVs, Blu-Ray Players e Home Theater"}
-]
+[{"descricao":"Computadores, tablets, impressoras, etc.","id":1,"nome":"InformÃ¡tica"},{"descricao":"Geladeiras, fogÃµes, etc.","id":2,"nome":"EletrodomÃ©sticos"},{"descricao":"Smartphones, celulares e telefones.","id":3,"nome":"Telefonia"},{"descricao":"TVs, Blu-Ray, Players e Home Theater","id":4,"nome":"EletrÃ´nicos"}]

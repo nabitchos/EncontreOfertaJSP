@@ -5,8 +5,8 @@
             <!--DIV id="dimensions">aaaaa</DIV-->
         </div>
         <div class="col50">
-            <form name="formpesquisa" method="get" id="formpesquisa">
-                <input type="text" name="pesquisa" id="pesquisa">
+            <form name="formpesquisa" method="get" id="formpesquisa" action="busca.jsp">
+                <input type="text" name="s" id="pesquisa" required="required">
                 <input type="submit" name="pesquisar" value="Pesquisar" id="pesquisar">
             </form>
         </div>

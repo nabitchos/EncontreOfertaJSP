@@ -224,8 +224,10 @@ header h1 a{
 }
 .fotoProduto{
     display: block;
-    max-width: 290px;
     float: left;
+    text-align: center;
+    width: 290px;
+    background: #fff;
 }
 
 #categorias .fotoProduto{
@@ -233,8 +235,9 @@ header h1 a{
 }
 
 .fotoProduto img{
-    width: 100%;
-    height: auto;
+    margin: 0px auto;
+    max-height: 149px;
+    max-width: 290px;
 }
 
 .desc_ofertaProd{
@@ -546,4 +549,9 @@ footer {
 }
 .sociasOferta .fb_iframe_widget { 
     bottom: 3px;
+}
+.formContato #logoEOboneco {
+    float: left;
+    width: 250px;
+    height: 250px;
 }

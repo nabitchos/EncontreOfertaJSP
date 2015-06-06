@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String oferta = request.getParameter("id");
+    String IDoferta = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -90,14 +90,14 @@
                     $("#voucher").dialog("open");
                 });
             });
-
-            $.getJSON("json/oferta.json", function(data) {
-                $("#breadcrumb").append('<a href="categorias.jsp\?id=' + data.idcat + '">' + data.nomecat + '</a>');
-                $("#descProduto h2").html(data.nome);
-                $("#textoProduto p").html(data.descricao);
-                $(".fotoProduto:first").html('<img src="images/ofertas/' + data.imagem + '" alt="' + data.nome + '">');
-                $(".desc_ofertaProd").html(data.oferta);
-                $(".fotoProduto:last").html('<img src="images/anunciantes/' + data.vendedor + '.png" alt="' + data.vendedor + '">');
+            var JSONoferta = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/<%=(IDoferta)%>";
+            $.getJSON("json-proxy.jsp?url=" + JSONoferta, function(dadosJSON) {
+                $("#breadcrumb").append('<a href="categorias.jsp\?id=' + dadosJSON.categoria.id + '">' + dadosJSON.categoria.nome + '</a>');
+                $("#descProduto h2").html(dadosJSON.nome);
+                $("#textoProduto p").html(dadosJSON.descricao);
+                $(".fotoProduto:first").html('<img src="' + dadosJSON.imagem + '" alt="' + dadosJSON.nome + '">');
+                $(".desc_ofertaProd").html(dadosJSON.oferta);
+                $(".fotoProduto:last").html('<img src="images/anunciantes/' + dadosJSON.vendedor.id + '.png" alt="' + dadosJSON.vendedor.nome + '">');
             });
         </script>
         <jsp:include page="footer.jsp" />

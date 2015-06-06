@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String categoria = request.getParameter("id");
+    String idCat = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,16 +24,17 @@
         </section>        
         <script src="js/jquery.min.js"></script>
         <script>
-            $.getJSON("json/categoria.json", function(data) {
-                var ofertas = '<h1><a href="#">Categorias</a> \&gt; <a href="#">'+ data.categoria +'</a></h1>';
+            var JSONcat = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/categoria/<%=(idCat)%>";
+            $.getJSON("json-proxy.jsp?url=" + JSONcat, function(dadosJSON) {
+                var ofertas = '<h1><a href="#">Categorias</a> \&gt; <a href="#">' + dadosJSON[0].categoria.nome + '</a></h1>';
                 /* loop pelo array do json*/
-                $.each(data.ofertas, function(index, d) {
-                    ofertas += '<article class="produtoCategoria"><div class="fotoProduto">'+
-                               '<img src="images/ofertas/'+ d.imagem +'" height="175" width="290" alt="'+ d.nome + '"></div>'+
-                               '<div class="descProdutoCat"><div class="esquerdaProd"><h2>'+ d.nome +'</h2><div class="desc_oferta">'+ d.oferta +'</div></div>'+
-                               '<div class="linksProd"><img src="images/anunciantes/'+ data.id +'.png" height="" width="290" alt="'+ data.id +'">'+
-                               '<span class="veja_mais"><a href="oferta.jsp\?id='+ d.id +'">Veja mais</a></span>'+
-                               '</div></div><div class="clear"></div></article>';
+                $.each(dadosJSON, function(i, prod) {
+                    ofertas += '<article class="produtoCategoria"><div class="fotoProduto">' +
+                            '<img src="' + prod.imagem + '" alt="' + prod.nome + '"></div>' +
+                            '<div class="descProdutoCat"><div class="esquerdaProd"><h2>' + prod.nome + '</h2><div class="desc_oferta">' + prod.oferta + '</div></div>' +
+                            '<div class="linksProd"><img src="images/anunciantes/' + dadosJSON[i].vendedor.id + '.png"  alt="' + dadosJSON[i].vendedor.nome  + '">' +
+                            '<span class="veja_mais"><a href="oferta.jsp\?id=' + prod.id + '">Veja mais</a></span>' +
+                            '</div></div><div class="clear"></div></article>';
                     $("#categorias .meio").html(ofertas);
                 });
             });

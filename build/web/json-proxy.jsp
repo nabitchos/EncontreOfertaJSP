@@ -1,11 +1,14 @@
 <%
 /*  JSON proxy. Para ler o JSON de dommínios que exigem "CORS 'Access-Control-Allow-Origin'"
     e não suportam JSONP ou callbacks.
-    Adaptado de https://www.codemagi.com/blog/post/190   */
+    Adaptado de https://www.codemagi.com/blog/post/190    
+    */
 %>
-<%@ page import="java.io.*, java.net.*"%>
-<%@ page contentType="charset=utf-8" pageEncoding="utf-8" %>
-<%/* contentType definido para tratar encoding do JSON da API */%>
+<%@ page
+    import="java.io.*,
+            java.net.*"
+    contentType="application/json; charset=UTF-8"
+%>
 <%    
     String urlJSON = request.getParameter("url");
 

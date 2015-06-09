@@ -65,9 +65,16 @@
                 <div class="clear"> &nbsp; </div>
             </div>
         </section>
-        <div id="voucher" title="Voucher gerado com sucesso!">
-            <h1></h1>
-            <a href="#" target="_blank">Ir até o site do vendedor</a>
+        <div id="voucher" title="Gerar o voucher">            
+            <h3></h3>
+            <form name="formvoucher" id="formvoucher" action="#">
+                <strong>Informe seu email para gerar o voucher desta oferta:</strong><br><br>
+                <label for="emailvoucher">Email:</label>
+                <input type="email" name="email" id="email" required="required">
+                <input type="hidden" name="idPromocao" id="idPromocao" value="<%=(IDoferta)%>">
+                <input type="submit" name="geravoucher" value="Gerar o voucher">
+                <div id="statusvoucher"></div>
+            </form>
         </div>
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
@@ -83,14 +90,49 @@
                             $(this).dialog("close");
                         }
                     }
-                });
-                $("#opener").click(function() {
-                    $("#voucher h1").html('P85M5LDA6883MYR');
+                });               
+                $("#opener").click(function() {                    
+                    //$("#voucher h3").html('P85M5LDA6883MYR');
                     $("#voucher").dialog("option", "width", 500);
-                    $("#voucher").dialog("open");
-                });
+                    $("#voucher").dialog("open");                    
+                });                
             });
-            var JSONoferta = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/<%=(IDoferta)%>";
+            
+            $('#formvoucher').submit(function() {                
+                $("#formvoucher #statusvoucher").html('<br><img src="images/loading_bar.gif" alt="Carregando...">');
+                var valores = {};
+                var JSONpost = "";
+                $.each($('#formvoucher').serializeArray(), function(i, field) {
+                    valores[field.name] = field.value;
+                });                                
+                JSONpost = JSON.stringify(valores);
+                console.log(JSONpost);
+
+                var urlGeraVoucher = "/pub/api/voucher/gerar/";
+                //var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/pub/api/voucher/gerar/";                
+                $.ajax ({
+                    url: urlGeraVoucher,
+                    crossDomain: true,
+                    type: "POST",
+                    data: JSONpost,
+                    dataType: "json",                    
+                    contentType: "application/json; charset=utf-8",
+                    success: function(voucher){                        
+                        var htmlVoucher = "<strong>Voucher gerado com sucesso.<br><br>" +
+                        "Seu código é:</strong>" +
+                                "<h3>"+ voucher.codigo +"</h3>";
+                        $("#formvoucher").html(htmlVoucher);                        
+                    },
+                    error: function(jqXHR){
+                        var erroVoucher = '<br><strong>Houve um erro ao gerar o voucher.<br>Tente novamente mais tarde. ('+ jqXHR.status +')</strong>';
+                        $("#formvoucher #statusvoucher").html(erroVoucher);                                                
+                    }
+                });
+                
+                return false;
+            });
+            
+            var JSONoferta = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/<%=(IDoferta)%>/";
             $.getJSON("json-proxy.jsp?url=" + JSONoferta, function(dadosJSON) {
                 $("#breadcrumb").append('<a href="categorias.jsp\?id=' + dadosJSON.categoria.id + '">' + dadosJSON.categoria.nome + '</a>');
                 $("#descProduto h2").html(dadosJSON.nome);

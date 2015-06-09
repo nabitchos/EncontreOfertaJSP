@@ -35,7 +35,7 @@
             $(document).ready(function() {
                 /* definindo que não haverá cache */
                 $.ajaxSetup({cache: false});
-                var JSONbanner = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/nivel/1";
+                var JSONbanner = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/nivel/1/";
                 $.getJSON("json-proxy.jsp?url=" + JSONbanner, function(dadosJSON) {
                     var banners = "";
 
@@ -44,7 +44,7 @@
                         banners += '<h3 class="title">' + (i + 1) + '</h3>' +
                                 '<div><a href="oferta.jsp\?id=' + banner.id + '" title="' + banner.descricao + ' ' + banner.oferta + '">' +
                                 '<div class="col50"><h1>' + banner.nome + '</h1><h2>' + banner.oferta + '</h2></div>' +
-                                '<div class="col50"><img src="' + banner.imagem + '" alt="'+ banner.descricao + ' ' + banner.oferta +'"></div>' +
+                                '<div class="col50"><br><br><br><img src="' + banner.imagem + '" alt="'+ banner.descricao + ' ' + banner.oferta +'"></div>' +
                                 '</a></div>';
                     });
 

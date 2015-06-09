@@ -1,5 +1,5 @@
 <script>
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function() {        
         $("#menuCategorias").hide();
         $("#linkCategorias").click(function() {
             $("#linkCategorias").toggleClass("abaLaranja");//muda a classe do link categorias

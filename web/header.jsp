@@ -27,7 +27,7 @@
                     <li> <a href="/">Início</a></li>                        
                     <li> <a href="#" id="linkCategorias">Categorias</a> </li>
                     <%if(session.getAttribute("nome") != null){%>
-                    <li><a href="minhaconta.jsp">Acesse sua conta</a> </li>                   
+                    <li><a href="minhaconta.jsp">Sua conta</a> </li>                   
                     <%}else{%>
                     <li> <a href="acesso.jsp">Acesso | Cadastro</a> </li>
                     <%};%>

@@ -59,8 +59,8 @@
                 JSONpost = JSON.stringify(valores);
                 console.log(JSONpost);
                 
-                var urlLogin = "/pub/api/usuario/login/";
-                //var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/pub/api/voucher/gerar/";                
+                var urlLogin = "/api-encontreoferta/api/usuario/login/";
+                //var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/api-encontreoferta/voucher/gerar/";                
                 $.ajax ({
                     url: urlLogin,
                     crossDomain: true,

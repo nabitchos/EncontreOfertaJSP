@@ -108,8 +108,8 @@
                 JSONpost = JSON.stringify(valores);
                 console.log(JSONpost);
 
-                var urlGeraVoucher = "/pub/api/voucher/gerar/";
-                //var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/pub/api/voucher/gerar/";                
+                var urlGeraVoucher = "/api-encontreoferta/api/voucher/gerar/";
+                //var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/api-encontreoferta/voucher/gerar/";                
                 $.ajax ({
                     url: urlGeraVoucher,
                     crossDomain: true,

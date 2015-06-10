@@ -82,6 +82,12 @@ a {
     background-size: 1px 1px;
     background-repeat: repeat-y;
 }
+.bordaEsq{
+    background-image: url(../images/menu.png);
+    background-position: left;
+    background-size: 1px 1px;
+    background-repeat: repeat-y;
+}
 .clear {
     height: 0px;
     clear: both;
@@ -421,19 +427,19 @@ header h1 a{
     display: block;
     margin: 10px 0;
 }
-.formContato label{
+.formContato label {
     display: inline-block;
-    width: 50px;
+    width: 70px;
     text-align: right;
     color: #555;
-    margin-right: 10px;
+    margin-right: 5px;
     vertical-align: top;
-    padding:4px 0;
+    padding: 4px 0px;
 }
 .formContato textarea, .formContato input[type="text"],
 .formContato input[type="email"], .formContato input[type="tel"], .formContato input[type="password"]{
     display: inline-block;
-    width: 340px;
+    width: 300px;
     font-size: 15px;
     padding: 2px 4px;
     border: 1px solid #ddd;
@@ -581,8 +587,11 @@ footer {
 .formContato .col50 {
     text-align: center;
 }
-#statuslogin {
+#statuslogin, #statuscadastro {
+    display: block;
     text-align: center;
+    margin: 10px;
+    width: auto;
 }
 #linkminhaconta {
     color: #777;

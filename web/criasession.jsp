@@ -17,5 +17,7 @@
     if (session.getAttribute("idUsuario") != null && session.getAttribute("email") != null){
        //out.print(session.getAttribute("idUsuario") +"<br>"+ session.getAttribute("email"));
         response.sendRedirect("minhaconta.jsp");
+    }else{
+        response.sendRedirect("acesso.jsp");
     };
 %>

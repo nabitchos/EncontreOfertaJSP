@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/jquery-ui.min.css">
     </head>
     <body>
-        <div id="fb-root"></div>
+        <!--div id="fb-root"></div>
         <script>
             (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -30,7 +30,7 @@
             {
                 lang: 'pt-BR'
             }
-        </script>
+        </script-->
         <jsp:include page="header.jsp" /> 
         <section id="produto">
             <div class="meio">
@@ -46,7 +46,7 @@
                         <h2><p><img src="images/loading_bar.gif" alt="Carregando..."></p></h2>
                         <p></p>                        
                     </div>
-                    <div class="sociasOferta">
+                    <!--div class="sociasOferta">
                         <strong>Compartilhe</strong>
                         <div class="fb-share-button" data-href="<%=request.getRequestURL() + "?" + request.getQueryString()%>" data-layout="button"></div>&nbsp;&nbsp;
                         <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>&nbsp;&nbsp;
@@ -60,7 +60,7 @@
                                     fjs.parentNode.insertBefore(js, fjs);
                                 }
                             }(document, 'script', 'twitter-wjs');</script>                                                
-                    </div>
+                    </div-->
                 </div>                
                 <div class="clear"> &nbsp; </div>
             </div>
@@ -70,7 +70,11 @@
             <form name="formvoucher" id="formvoucher" action="#">
                 <strong>Informe seu email para gerar o voucher desta oferta:</strong><br><br>
                 <label for="emailvoucher">Email:</label>
+                <%if(session.getAttribute("email") != null){%>
+                <input type="email" name="email" id="email" value="<%=(session.getAttribute("email"))%>" readonly="readonly">
+                <%}else{%>
                 <input type="email" name="email" id="email" required="required">
+                <%};%>                
                 <input type="hidden" name="idPromocao" id="idPromocao" value="<%=(IDoferta)%>">
                 <input type="submit" name="geravoucher" value="Gerar o voucher">
                 <div id="statusvoucher"></div>
@@ -92,7 +96,6 @@
                     }
                 });               
                 $("#opener").click(function() {                    
-                    //$("#voucher h3").html('P85M5LDA6883MYR');
                     $("#voucher").dialog("option", "width", 500);
                     $("#voucher").dialog("open");                    
                 });                
@@ -107,19 +110,18 @@
                 });                                
                 JSONpost = JSON.stringify(valores);
                 console.log(JSONpost);
-
-                var urlGeraVoucher = "/api-encontreoferta/api/voucher/gerar/";
-                //var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/api-encontreoferta/voucher/gerar/";                
+                
+                var urlGeraVoucher = "http://api-encontreoferta.jelasticlw.com.br/pub/api/voucher/gerar/";
                 $.ajax ({
-                    url: urlGeraVoucher,
-                    crossDomain: true,
+                    url: urlGeraVoucher,                    
                     type: "POST",
                     data: JSONpost,
+                    crossDomain: true,
                     dataType: "json",                    
                     contentType: "application/json; charset=utf-8",
                     success: function(voucher){                        
                         var htmlVoucher = "<strong>Voucher gerado com sucesso.<br><br>" +
-                        "Seu código é:</strong>" +
+                                "Seu código é:</strong>" +
                                 "<h3>"+ voucher.codigo +"</h3>";
                         $("#formvoucher").html(htmlVoucher);                        
                     },
@@ -133,7 +135,7 @@
             });
             
             var JSONoferta = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/<%=(IDoferta)%>/";
-            $.getJSON("json-proxy.jsp?url=" + JSONoferta, function(dadosJSON) {
+            $.getJSON(JSONoferta, function(dadosJSON) {
                 $("#breadcrumb").append('<a href="categorias.jsp\?id=' + dadosJSON.categoria.id + '">' + dadosJSON.categoria.nome + '</a>');
                 $("#descProduto h2").html(dadosJSON.nome);
                 $("#textoProduto p").html(dadosJSON.descricao);

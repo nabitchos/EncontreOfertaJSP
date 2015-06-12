@@ -1,12 +1,12 @@
 <script>
-    jQuery(document).ready(function() {        
+    $(function() {        
         $("#menuCategorias").hide();
         $("#linkCategorias").click(function() {
             $("#linkCategorias").toggleClass("abaLaranja");//muda a classe do link categorias
             $("#menuCategorias").slideToggle(200);//mostra e oculta ativa e desativa o menu
         });
         var JSONCats = "http://api-encontreoferta.jelasticlw.com.br/pub/api/categoria";
-        $.getJSON("json-proxy.jsp?url=" + JSONCats, function(dadosJSON) {
+        $.getJSON(JSONCats, function(dadosJSON) {
             var menuCats = "";
 
             $.each(dadosJSON, function(i, cat) {

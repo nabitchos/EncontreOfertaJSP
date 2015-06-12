@@ -36,7 +36,7 @@
                 /* definindo que não haverá cache */
                 $.ajaxSetup({cache: false});
                 var JSONbanner = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/nivel/1/";
-                $.getJSON("json-proxy.jsp?url=" + JSONbanner, function(dadosJSON) {
+                $.getJSON(JSONbanner, function(dadosJSON) {
                     var banners = "";
 
                     /* loop pelo array do json*/
@@ -53,7 +53,7 @@
                 });
                 
                 var JSONdestaques = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/nivel/2";
-                $.getJSON("json-proxy.jsp?url=" + JSONdestaques, function(destaques) {
+                $.getJSON(JSONdestaques, function(destaques) {
                     var ofertasHome = "<h1>OFERTAS EM DESTAQUE</h1>";
 
                     /* loop pelo array do json*/

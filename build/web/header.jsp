@@ -1,14 +1,19 @@
+<%    
+    //String urlBase = "http://api-encontreoferta.jelasticlw.com.br/pub/api";
+%>
+<%!
+public String urlBase = "http://api-encontreoferta.jelasticlw.com.br/pub/api";
+%>
 <header>
     <div class="meio">
         <div class="col50">
-            <h1><a href="index.jsp">Encontre Oferta</a> </h1>
-            <!--DIV id="dimensions">aaaaa</DIV-->
+            <h1><a href="index.jsp">Encontre Oferta</a> </h1>            
         </div>
         <div class="col50">
             <div class="col50">
                 <div id="linkminhaconta"><%if(session.getAttribute("nome") != null){%>
                     Olá, <%=session.getAttribute("nome")%>!<br>
-                    <a href="minhaconta.jsp">Acesse sua conta</a>
+                    <a href="minhaconta.jsp">Sua conta</a> | <a href="sair.jsp">Sair</a>
                     <%};%>
                 </div>
             </div>
@@ -25,14 +30,14 @@
             <nav>
                 <ul>
                     <li> <a href="/">Início</a></li>                        
-                    <li> <a href="#" id="linkCategorias">Categorias</a> </li>
+                    <li> <a href="#" id="linkCategorias">Categorias</a> </li>                    
+                    <li> <a href="quem_somos.jsp">Quem Somos</a> </li>
+                    <li> <a href="contato.jsp">Contato</a> </li>
                     <%if(session.getAttribute("nome") != null){%>
                     <li><a href="minhaconta.jsp">Sua conta</a> </li>                   
                     <%}else{%>
                     <li> <a href="acesso.jsp">Acesso | Cadastro</a> </li>
                     <%};%>
-                    <li> <a href="quem_somos.jsp">Quem Somos</a> </li>
-                    <li> <a href="contato.jsp">Contato</a> </li>
                 </ul>
             </nav>
         </div>

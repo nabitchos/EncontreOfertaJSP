@@ -25,7 +25,7 @@
         <script src="js/jquery.min.js"></script>
         <script>
             var JSONcat = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/";
-            $.getJSON("json-proxy.jsp?url=" + JSONcat, function(dadosJSON) {
+            $.getJSON(JSONcat, function(dadosJSON) {
                 var ofertas = '<h1>Resultado da busca por: <%=(StrBusca)%></h1>';
                 var aviso = '';
                 var cont = 0;

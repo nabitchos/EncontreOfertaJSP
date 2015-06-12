@@ -3,5 +3,5 @@
     session.removeAttribute("email");
     session.removeAttribute("idUsuario");
     
-    response.sendRedirect("acesso.jsp");
+    response.sendRedirect("index.jsp");
 %>

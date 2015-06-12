@@ -26,7 +26,7 @@
         <script>
             var JSONcat = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/categoria/<%=(idCat)%>";
             var ofertas = "";
-            $.getJSON("json-proxy.jsp?url=" + JSONcat, function(dadosJSON) {
+            $.getJSON(JSONcat, function(dadosJSON) {
                 if (dadosJSON.length) {
                     ofertas += '<h1><a href="#">Categorias</a> \&gt; <a href="#">' + dadosJSON[0].categoria.nome + '</a></h1>';
                     $.each(dadosJSON, function(i, prod) {
@@ -41,7 +41,7 @@
                     $("#categorias .meio").html(ofertas);
                 } else {
                     JSONcat = "http://api-encontreoferta.jelasticlw.com.br/pub/api/categoria/<%=(idCat)%>";
-                    $.getJSON("json-proxy.jsp?url=" + JSONcat, function(dadosJSON) {
+                    $.getJSON(JSONcat, function(dadosJSON) {
                         ofertas += '<h1><a href="#">Categorias</a> \&gt; <a href="#">' + dadosJSON.nome + '</a></h1>' +
                                 '<article class="produtoCategoria"><div class="fotoProduto">' +
                                 '<img src="images/eo_logo-boneco-pq.png" alt="Encontre Oferta"></div>' +

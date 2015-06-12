@@ -86,7 +86,7 @@
                 JSONcadastro = JSON.stringify(valores);
                 console.log("JSONcadastro: " + JSONcadastro);
                 console.log("Form inválido? " + formInvalido);
-                var urlCadastro = "/api-encontreoferta/api/usuario/";
+                var urlCadastro = "http://api-encontreoferta.jelasticlw.com.br/pub/api/usuario/";
                 if(formInvalido == 0){                    
                     $.ajax ({
                         url: urlCadastro,
@@ -108,7 +108,9 @@
                             $("#statuslogin").html(erroCadastro);                                                
                         }
                     });
-            }
+                }else{
+                    $("#statuscadastro").html("<strong>Por favor preencha todos os campos.</strong>"); 
+                }
             });
             $('#botFormAcesso').click(function() {
                 $("#formlogin #statuslogin").html('<br><img src="images/loading_bar.gif" alt="Carregando...">');
@@ -120,7 +122,7 @@
                 JSONlogin = JSON.stringify(valores);
                 console.log("JSONlogin: " + JSONlogin);
                 
-                var urlLogin = "/api-encontreoferta/api/usuario/login/";                
+                var urlLogin = "http://api-encontreoferta.jelasticlw.com.br/pub/api/usuario/login/";                
                 $.ajax ({
                     url: urlLogin,
                     crossDomain: true,

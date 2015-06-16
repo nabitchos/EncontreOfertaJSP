@@ -43,7 +43,7 @@
         <script src="../js/jquery.min.js"></script>
         <script>
             $('#botFormAcesso').click(function() {
-                $("#formlogin #statuslogin").html('<br><img src="images/loading_bar.gif" alt="Carregando...">');
+                $("#formlogin #statuslogin").html('<br><img src="../images/loading_bar.gif" alt="Carregando...">');
                 var valores = {};
                 var JSONlogin = "";
                 $.each($('#formlogin').serializeArray(), function(i, field) {

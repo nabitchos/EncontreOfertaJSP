@@ -84,7 +84,7 @@
                 $("#formDados").slideUp();
                 $("#listaVouchers").html('<br><div align="center"><img src="../images/loading_bar.gif" alt="Carregando..."></div>');
                 $.getJSON(JSONvendedores, function(dadosJSON) {
-                var vouchers = '<h2>Níveis</h2>' ;
+                var vouchers = '<h2>Uauários</h2>' ;
                     if (!$.isEmptyObject(dadosJSON)){
                         $.each(dadosJSON, function(i, usuario) {
                             var preCad = "";

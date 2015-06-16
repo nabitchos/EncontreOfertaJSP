@@ -8,13 +8,10 @@
         <meta charset="utf-8">
         <title>Encontre Oferta</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css">
-        <!-- Banner -->
-        <link rel="stylesheet" href="css/animate.min.css">
-        <link rel="stylesheet" href="css/liquid-slider.css">
         <link rel="stylesheet" href="css/jquery-ui.min.css">
     </head>
     <body>
-        <!--div id="fb-root"></div>
+        <div id="fb-root"></div>
         <script>
             (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -30,7 +27,7 @@
             {
                 lang: 'pt-BR'
             }
-        </script-->
+        </script>
         <jsp:include page="header.jsp" /> 
         <section id="produto">
             <div class="meio">
@@ -46,7 +43,7 @@
                         <h2><p><img src="images/loading_bar.gif" alt="Carregando..."></p></h2>
                         <p></p>                        
                     </div>
-                    <!--div class="sociasOferta">
+                    <div class="sociasOferta">
                         <strong>Compartilhe</strong>
                         <div class="fb-share-button" data-href="<%=request.getRequestURL() + "?" + request.getQueryString()%>" data-layout="button"></div>&nbsp;&nbsp;
                         <div class="g-plus" data-action="share" data-annotation="none" data-height="24"></div>&nbsp;&nbsp;
@@ -60,7 +57,7 @@
                                     fjs.parentNode.insertBefore(js, fjs);
                                 }
                             }(document, 'script', 'twitter-wjs');</script>                                                
-                    </div-->
+                    </div>
                 </div>                
                 <div class="clear"> &nbsp; </div>
             </div>
@@ -104,7 +101,7 @@
             $('#formvoucher').submit(function() {                
                 $("#formvoucher #statusvoucher").html('<br><img src="images/loading_bar.gif" alt="Carregando...">');
                 var valores = {};
-                var JSONpost = "";
+                var JSONpost = "";                
                 $.each($('#formvoucher').serializeArray(), function(i, field) {
                     valores[field.name] = field.value;
                 });                                
@@ -124,6 +121,32 @@
                                 "Seu código é:</strong>" +
                                 "<h3>"+ voucher.codigo +"</h3>";
                         $("#formvoucher").html(htmlVoucher);                        
+                        
+                        
+                        enviaVoucher = "email=encontreoferta@encontreoferta.com.br&nome=Site Encontre Oferta" +
+                                         "&destinatario=" + voucher.usuario.email + "&assunto=Voucher do site Encontre Oferta" +
+                                         "&mensagem=Você gerou um voucher para uma oferta no site Encontre Oferta.<br><br>" +
+                                         "Seguem os dados do voucher: <br> Código: " + voucher.codigo + "<br>" +
+                                         "Produto: " + voucher.promocao.nome + "<br><br>Para ver mais informações clique "+
+                                         "<a href='http://www.encontreoferta.com.br/acesso.jsp'>aqui</a> e acesse sua conta.<br><br>" + 
+                                         "<img src='http://www.encontreoferta.com.br/images/eo_logo-boneco-pq.png' width='150' height='150'><br>" +
+                                         "Atenciosamente,<br><strong>Encontre Oferta</strong>";
+                        $.ajax({
+                            url: "email.jsp",
+                            type: "POST",
+                            data: enviaVoucher,
+                            success: function(envio) {
+                                if (envio.statusenvio == 'ok') {
+                                    console.log(envio.msg);                                    
+                                } else {
+                                    console.log(envio.msg); 
+                                }
+                            },
+                            error: function(jqXHR) {
+                                console.log(jqXHR.status);                                
+                            }
+                        });                        
+                        
                     },
                     error: function(jqXHR){
                         var erroVoucher = '<br><strong>Houve um erro ao gerar o voucher.<br>Tente novamente mais tarde. ('+ jqXHR.status +')</strong>';

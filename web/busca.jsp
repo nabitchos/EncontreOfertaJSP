@@ -8,10 +8,6 @@
         <meta charset="utf-8">
         <title>Encontre Oferta</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css">
-        <!-- Banner -->
-        <link rel="stylesheet" href="css/animate.min.css">
-        <link rel="stylesheet" href="css/liquid-slider.css">
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
     </head>
     <body>
         <jsp:include page="header.jsp" /> 

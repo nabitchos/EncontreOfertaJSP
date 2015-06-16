@@ -369,6 +369,23 @@ header h1 a{
     -moz-box-shadow:    inset 0px -9px 0px -5px rgba(204, 204, 204, 1);
     box-shadow:         inset 0px -9px 0px -5px rgba(204, 204, 204, 1);
 }
+.formContato .vendedorLista .col50{
+    width: 47%;
+    text-align: left;
+    padding-left: 2%;
+}
+.vendedorLista{
+    display: block;
+    width: 96%;
+    margin: 2%;
+    -webkit-box-shadow: inset 0px -9px 0px -5px rgba(204, 204, 204, 1);
+    -moz-box-shadow:    inset 0px -9px 0px -5px rgba(204, 204, 204, 1);
+    box-shadow:         inset 0px -9px 0px -5px rgba(204, 204, 204, 1);
+}
+.vendedorLista img{
+    background: #FF9C00;
+    border: 5px solid #FF9C00;
+}
 .col75 .produtoCategoria{
     width:98%;
     margin-left: 2%;
@@ -449,7 +466,7 @@ header h1 a{
     min-height: 350px;
 }
 .formContato h2{
-    font-size: 1em;
+    font-size: 1.1em;
     color: #555;
     margin: 0 0 30px 10px;
 }
@@ -647,4 +664,29 @@ footer {
     margin: 0 auto;
     width: 60%;
     text-align: center;
+}
+#formlogin a {
+    margin: auto;
+    display: inline;
+}
+strong{
+    color:#888;
+}
+.bg555{
+    background: #555;
+}
+header#headeradm nav ul li { 
+    width: 16.5%;
+}
+a.disabled {
+    text-decoration: none;
+    color: #ccc;
+    cursor: default;
+}
+#listaVouchers-pagination a{
+    display: inline;
+    font-weight: bold;
+}
+#listaVouchers-pagination{
+    display: none;
 }

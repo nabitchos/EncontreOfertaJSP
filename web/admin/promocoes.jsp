@@ -1,34 +1,34 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    if (session.getAttribute("nome") == null || session.getAttribute("email") == null || session.getAttribute("idUsuario") == null) {
-        response.sendRedirect("acesso.jsp");
-    };
+    if (session.getAttribute("nomeadm") == null || session.getAttribute("emailadm") == null) {
+        response.sendRedirect("index.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>    
         <meta charset="utf-8">
         <title>Encontre Oferta</title>
-        <link rel="stylesheet" href="css/estilos.css" type="text/css">
+        <link rel="stylesheet" href="../css/estilos.css" type="text/css">        
     </head>
     <body>
         <jsp:include page="header.jsp" /> 
         <section id="categorias">
             <div class="meio">
-                <h1>Minha conta</h1>
+                <h1>Promoções / Ofertas</h1>
                 <article class="formContato">                    
                     <div class="col25">
                         <div>
                             <h2>Menu</h2>
                             <ul>
-                                <li><a href="#" id="vouchers"><strong>Meus vouchers</strong></a></li>
-                                <li><a href="#" id="dados"><strong>Meus dados</strong></a></li>
+                                <li><a href="#" id="vouchers"><strong>Listar ofertas</strong></a></li>
+                                <!--li><a href="#" id="novovend"><strong>Incluir nova</strong></a></li-->
                             </ul>
                         </div>
                     </div>
                     <div class="col75 bordaEsq" id="direita">                        
                         <div id="formDados">
-                            <h2>Meus dados</h2>
+                            <h2>Incluir Oferta</h2>
                             <form name="formatualiza" id="formatualiza" action="criasession.jsp" method="post">
                                 <div>
                                     <label for="nome">Nome: </label>
@@ -48,82 +48,74 @@
                                 </div>
                                 <div>
                                     <label for="senha">Senha: </label>
-                                    <input type="password" id="senha" name="senha" required>
+                                    <input type="text" id="senha" name="senha" required>
                                     <input type="hidden" value="" id="id" name="id">
                                 </div>
                                 <div>
-                                    <input type="button" value="Enviar" id="botFormCadastro">
-                                    
+                                    <input type="button" value="Enviar" id="botFormCadastro">                                    
                                 </div>
                                 <div id="statuscadastro"></div>
                             </form>
                         </div>
                         <div id="listaVouchers"></div>
-                        <div id="listaVouchers-pagination">
-                            <a id="listaVouchers-previous" href="#">&laquo; Anterior</a> 
-                            <a id="listaVouchers-next" href="#">Próxima &raquo;</a> 
-                        </div>
                     </div>
                     <div class="clear"> &nbsp; </div>
                 </article>
             </div>
         </section>    
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.paginate.js"></script>
+        <script src="../js/jquery.min.js"></script>
         <script>
             $(function(){
                 $("#formDados").hide();
             });
-            var JSONuser = "http://api-encontreoferta.jelasticlw.com.br/pub/api/usuario/<%=(session.getAttribute("idUsuario"))%>";
-            $('#dados').click(function() {
+
+            $('#novovend').click(function() {
                 $("#formDados").slideDown();
                 $("#listaVouchers").slideUp();
-                $("#statuscadastro").html('<br><div align="center"><img src="images/loading_bar.gif" alt="Carregando..."></div>');                
-                $.getJSON(JSONuser, function(dadosJSON) {
-                        var dados = '';                                        
-                        $("#nome").val(dadosJSON.nome);
-                        $("#email").val(dadosJSON.email);
-                        $("#telefone").val(dadosJSON.telefone);
-                        $("#endereco").val(dadosJSON.endereco);
-                        $("#senha").val(dadosJSON.senha);
-                        $("#id").val(dadosJSON.id);
-                        $("#statuscadastro").html('');
-                }).fail(function(jqXHR) {                    
-                    $("#statuscadastro").html('Erro ao carregar os dados.<br>Por favor tente novamente.('+jqXHR.status+')');
-                });                
             });
-            var JSONvouchers = "http://api-encontreoferta.jelasticlw.com.br/pub/api/voucher/usuario/<%=(session.getAttribute("idUsuario"))%>";
+
+            var JSONcat = "http://api-encontreoferta.jelasticlw.com.br/pub/api/promocao/";
             $('#vouchers').click(function() {
                 $("#formDados").slideUp();
                 $("#listaVouchers").slideDown();
-                $("#listaVouchers").html('<br><div align="center"><img src="images/loading_bar.gif" alt="Carregando..."></div>');
-                $.getJSON(JSONvouchers, function(dadosJSON) {
-                    var vouchers = '<h2>Meus vouchers</h2>';
-                    if(!$.isEmptyObject(dadosJSON)){
-                    $.each(dadosJSON, function(i, voucher) {
-                        vouchers += '<article class="produtoCategoria"><div class="fotoProduto">' +
-                                '<img src="' + voucher.promocao.imagem + '" alt="Encontre Oferta"></div>' +
-                                '<div class="descProdutoVoucher"><h2>' + voucher.promocao.nome + '</h2>' +
-                                '<div class="desc_oferta"><strong>&nbsp;&nbsp;Código do voucher: </strong>' + voucher.codigo + '</div>'+
-                                '<div class="col50"><a href="oferta.jsp?id='+ voucher.promocao.id +'" class="veja_mais">Veja a oferta</a></div>'+
-                                '<div class="col50"><img src="images/anunciantes/'+voucher.promocao.vendedor.id+'.png"></div>'+
-                                '</div><div class="clear"></div></article>';
-                    });
-                    }else{
-                        vouchers +='<h2>Você ainda não gerou nenhum voucher.</h2>';
+                $("#listaVouchers").html('<br><div align="center"><img src="../images/loading_bar.gif" alt="Carregando..."></div>');
+                
+                var ofertas = "";
+                $.getJSON(JSONcat, function(dadosJSON) {
+                    if (dadosJSON.length) {
+                        ofertas += '<h2>Ofertas</h2>';
+                        $.each(dadosJSON, function(i, prod) {
+                            ofertas += '<article class="produtoCategoria">'+
+                                       '<div class="col40"><span class="fotoProduto"><img src="'+ prod.imagem    +'" alt=""></span></div>'+
+                                       '<strong>Título: </strong>'+ prod.nome +'<br>'+
+                                       '<strong>Oferta: </strong>'+ prod.oferta +'<br>'+
+                                       '<strong>Descrição: </strong>'+ prod.descricao +'<br>'+
+                                       '<strong>Categoria: </strong>'+ prod.categoria.nome +'<br>'+
+                                       '<strong>Nível: </strong>'+ prod.nivel.id +' - '+ prod.nivel.nome +'<br>'+
+                                       '<div class="linksProd"><img src="../images/anunciantes/'+ prod.vendedor.id +'.png" alt=""><br>'+
+                                       '<!--a href="../oferta.jsp?id=1">Veja mais</a--></div>'+
+                                       '<div class="clear"></div></article>';
+                        });
+                        $("#listaVouchers").html(ofertas);
+                    } else {
+                        ofertas += '<h1><a href="#">Categorias</a> \&gt; <a href="#">AAAAAAAA</a></h1>' +
+                        '<article class="produtoCategoria"><div class="fotoProduto">' +
+                        '<img src="images/eo_logo-boneco-pq.png" alt="Encontre Oferta"></div>' +
+                        '<div class="descProdutoCat"><h2>No momento não há ofertas para exibir.</h2></div>' +
+                        '<div class="clear"></div></article>';
+                        $("#listaVouchers").html(ofertas);                    
                     }
-                    vouchers += '<div class="clear"> &nbsp; </div>';
-                    $("#listaVouchers").html(vouchers);
-                    $('#listaVouchers').paginate({itemsPerPage: 5});
                 });
+                
             });
+
             $('#botFormCadastro').click(function() {
-                $("#statuscadastro").html('<br><img src="images/loading_bar.gif" alt="Carregando...">');
+                $("#statuscadastro").html('<br><img src="../images/loading_bar.gif" alt="Carregando...">');
                 var valores = {};
                 var JSONcadastro = "";
-                var formInvalido = 0;                
+                var formInvalido = 0;
                 $.each($('#formatualiza').serializeArray(), function(i, field) {
-                    valores[field.name] = field.value;
+                valores[field.name] = field.value;
                     if (field.value == ''){
                         formInvalido ++;
                     }
@@ -141,7 +133,7 @@
                         dataType: "json",                    
                         contentType: "application/json; charset=utf-8",
                         success: function(){                           
-                                $("#statuscadastro").html('<strong>Cadastro atualizado com sucesso.</strong>');
+                            $("#statuscadastro").html('<strong>Cadastro atualizado com sucesso.</strong>');
                         },
                         error: function(jqXHR){
                             var erroCadastro = '<br><strong>Houve um erro ao processar seu cadastro.<br>Tente novamente mais tarde. ('+ jqXHR.status +')</strong>';

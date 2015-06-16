@@ -1,9 +1,3 @@
-<%    
-    //String urlBase = "http://api-encontreoferta.jelasticlw.com.br/pub/api";
-%>
-<%!
-public String urlBase = "http://api-encontreoferta.jelasticlw.com.br/pub/api";
-%>
 <header>
     <div class="meio">
         <div class="col50">

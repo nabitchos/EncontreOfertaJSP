@@ -5,10 +5,6 @@
         <meta charset="utf-8">
         <title>Encontre Oferta</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css">
-        <!-- Banner -->
-        <link rel="stylesheet" href="css/animate.min.css">
-        <link rel="stylesheet" href="css/liquid-slider.css">
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
     </head>
 
     <body>
@@ -19,7 +15,7 @@
                 <article class="formContato">
                     <div class="col60  bordaDir">
                         <h2>Preencha o formulário abaixo para entrar em contato conosco</h2>
-                        <form action="#" name="formcontato" id="formcontato">
+                        <form action="email.jsp" name="formcontato" id="formcontato" method="post">
                             <div>
                                 <label for="nome">Nome: </label>
                                 <input type="text" id="nome" name="nome" required>
@@ -35,10 +31,13 @@
                             <div>
                                 <label for="mensagem">Mensagem: </label>
                                 <textarea name="mensagem" id="mensagem" cols="30" rows="5" required></textarea>
+                                <input type="hidden" name="assunto" value="Form do site Encontre Oferta">
+                                <input type="hidden" name="destinatario" value="encontreoferta@encontreoferta.com.br">
                             </div>
                             <div>
-                                <input type="submit" value="Enviar">
+                                <input type="button" value="Enviar" id="botformcontato">
                             </div>
+                            <div id="statuscadastro"><br>&nbsp;</div>
                         </form>
                     </div>
                     <div class="col40">
@@ -60,13 +59,43 @@
         </section>    
         <script src="js/jquery.min.js"></script>
         <script>
-            $('#formcontato').submit(function() {
+            $('#botformcontato').click(function() {
+                $("#statuscadastro").html('<br><img src="images/loading_bar.gif" alt="Carregando...">');
                 var valores = {};
-                $.each($('#formcontato').serializeArray(), function(i, field) {
-                    valores[field.name] = field.value;
+                var JSONcontato = "";
+                var formInvalido = 0;
+                
+                JSONcontato = $('#formcontato').serialize();
+                $.each($('#formcontato').serializeArray(), function(i, field) {                    
+                    if (field.value == ''){
+                        formInvalido ++;
+                    }
                 });
-                console.log(JSON.stringify(valores));
-                return false;
+                console.log("Contato " + JSONcontato);
+                console.log("Form inválido " + formInvalido);
+                var urlLogin = "email.jsp"; 
+                
+                if(formInvalido == 0){
+                    $.ajax ({
+                        url: urlLogin,                    
+                        type: "POST",
+                        data: JSONcontato,                                        
+                        success: function(envio){
+                            if(envio.statusenvio == 'ok'){
+                                $("#statuscadastro").html('<br><strong>' + envio.msg + '<strong>');
+                                $("#formcontato")[0].reset();
+                            }else{
+                                $("#statuscadastro").html('<br><strong>' + envio.msg + '<strong>');
+                            }
+                        },
+                        error: function(jqXHR){
+                            var erroVoucher = '<br><strong>Houve problema erro ao enviar sua mensagem. ('+ jqXHR.status +')</strong>';
+                            $("#statuscadastro").html(erroVoucher);                            
+                        }
+                    });
+                }else{
+                    $("#statuscadastro").html("<br><strong>Por favor preencha todos os campos do formulário.</strong>");   
+                }
             });
         </script>
         <jsp:include page="footer.jsp" />

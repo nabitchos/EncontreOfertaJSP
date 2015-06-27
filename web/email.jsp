@@ -11,8 +11,8 @@
 <%@ page import="org.json.simple.JSONObject"%>
 <%
     final String username = "encontreoferta@encontreoferta.com.br";
-    final String password = "Senh@123";
-    String serverSMTP = "email-ssl.com.br";       
+    final String password = "********";
+    String serverSMTP = "********";       
     
     JSONObject result = new JSONObject();  
     

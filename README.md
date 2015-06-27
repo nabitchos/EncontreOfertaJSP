@@ -8,4 +8,4 @@ O projeto deste repositório é a parte de site do projeto Encontre Oferta e foi
 As chamadas à API são todas feitas no frontend, utilizando-se JQuery.
 Caso a API não esteja hspedada e em funcionamento este site não funciona.
 
-* [A API do projeto pode serencontrada em https://github.com/LeonardoLpds/api-encontreoferta](https://github.com/LeonardoLpds/api-encontreoferta)
+A API do projeto pode serencontrada em https://github.com/LeonardoLpds/api-encontreoferta .
